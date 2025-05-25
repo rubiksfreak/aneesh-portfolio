@@ -77,9 +77,11 @@
       font-size: 0.95rem;
     }
     .carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  height: 200px; /* ensures consistent height for controls */
+      position: relative;
+      overflow: hidden;
+      height: 200px; /* fixed height to anchor button positioning */
+      display: flex;
+      align-items: center;
 }
 
 .carousel-controls {
@@ -89,18 +91,19 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* fix: ensures vertical centering */
-  padding: 0 10px;
+  align-items: center; /* ensures vertical centering */
+  pointer-events: none; /* allows click-through except on buttons */
 }
 
 .carousel-button {
+  pointer-events: all; /* re-enable click */
   background: rgba(0, 188, 212, 0.7);
   border: none;
   color: white;
   font-size: 2rem;
   cursor: pointer;
-  height: 100%;
   width: 40px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
