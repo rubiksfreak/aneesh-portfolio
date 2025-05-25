@@ -76,6 +76,14 @@
       margin: 0.5rem 0 0;
       font-size: 0.95rem;
     }
+    .carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  }
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -133,13 +141,19 @@
 
   <section class="gallery">
     <div class="card">
-      <div class="carousel">
-        <img src="AOE1.png" alt="Age of Empires 1" onclick="openModal(this.src)">
-        <img src="AOE2.png" alt="Age of Empires 1" onclick="openModal(this.src)">
-        <img src="AOE3.png" alt="Age of Empires 1" onclick="openModal(this.src)">
-        <img src="AOE4.png" alt="Age of Empires 1" onclick="openModal(this.src)">
-        <img src="AOE5.png" alt="Age of Empires 1" onclick="openModal(this.src)">
-        <img src="AOE6.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+      <div class="carousel-wrapper">
+        <div class="carousel" id="carousel1">
+          <img src="AOE1.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+          <img src="AOE2.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+          <img src="AOE3.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+          <img src="AOE4.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+          <img src="AOE5.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+          <img src="AOE6.png" alt="Age of Empires 1" onclick="openModal(this.src)">
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-button" onclick="slideCarousel('carousel1', -1)">&#10094;</button>
+          <button class="carousel-button" onclick="slideCarousel('carousel1', 1)">&#10095;</button>
+        </div>
       </div>
       <div class="card-content">
         <h3>Age of Empires Franchise</h3>
@@ -182,6 +196,11 @@
     }
     function closeModal() {
       document.getElementById('imgModal').style.display = 'none';
+    }
+    function slideCarousel(id, direction) {
+      const carousel = document.getElementById(id);
+      const slideWidth = carousel.offsetWidth;
+      carousel.scrollBy({ left: slideWidth * direction, behavior: 'smooth' });
     }
   </script>
 </body>
