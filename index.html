@@ -81,12 +81,14 @@
       display: flex;
       align-items: center;
 }
-    .carousel-container {
-  overflow-x: hidden;
-  max-width: 100%;
+    .carousel-container::-webkit-scrollbar {
+  display: none;
 }
-
-.carousel-controls {
+    .carousel-container {
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;     /* Firefox */
+}
+    .carousel-controls {
   position: absolute;
   top: 50%;
   width: 100%;
@@ -95,8 +97,7 @@
   align-items: center; /* ensures vertical centering */
   pointer-events: none; /* allows click-through except on buttons */
 }
-
-.carousel-button {
+    .carousel-button {
   pointer-events: all; /* re-enable click */
   background: rgba(0, 188, 212, 0.7);
   border: none;
@@ -110,8 +111,7 @@
   justify-content: center;
   transition: background 0.3s ease;
 }
-
-.carousel-button:hover {
+    .carousel-button:hover {
   background: rgba(0, 188, 212, 1);
 }
     footer {
