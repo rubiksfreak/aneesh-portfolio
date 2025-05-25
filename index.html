@@ -76,14 +76,40 @@
       margin: 0.5rem 0 0;
       font-size: 0.95rem;
     }
-    .carousel-controls {
+    .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 200px; /* ensures consistent height for controls */
+}
+
+.carousel-controls {
   position: absolute;
-  top: 50%;
+  top: 0;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transform: translateY(-50%);
-  }
+  align-items: center; /* fix: ensures vertical centering */
+  padding: 0 10px;
+}
+
+.carousel-button {
+  background: rgba(0, 188, 212, 0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  height: 100%;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 188, 212, 1);
+}
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -128,7 +154,7 @@
       font-weight: bold;
       cursor: pointer;
     }
-  </style>
+    </style>
 </head>
 <body>
   <header>
